@@ -15,8 +15,11 @@ function fetchFavorites(){
     var response = [];
     console.log('faovrites'); 
     var menu = $('#menu');
+    var no_favs = $('#no-favs');
+    var fav_channels = $('#favorite-channels');
     var status_color,
-        li;
+        li,
+        fav_panel;
     
     for(var i = 0; i < favorites.length; i++){
         
@@ -35,12 +38,25 @@ function fetchFavorites(){
                 
                 if(data.stream === null){
                     status_color = 'text-danger';
-                     li = '<li><a href="#"><i class="fa fa-list-alt"></i> <span class="collapse in hidden-xs">' + data.display_name + '</span> <span class="collapse in hidden-xs pull-right"><i class="fa fa-circle fa-xs '+status_color+'" ></i></span></a></li>';
+                     li = '<li class="status-ofline"><a href="https://www.twitch.tv/'+data.display_name+'" target="_blank"><i class="fa fa-list-alt"></i> <span class="collapse in hidden-xs">' + data.display_name + '</span> <span class="collapse in hidden-xs pull-right"><i class="fa fa-circle fa-xs '+status_color+'" ></i></span></a></li>';
                 } else {
                     status_color = 'text-success';
-                     var li = '<li><a href="#"><i><img class="img img-rounded" style="border-radius:50%; width:30px"  src="' + data.stream.channel.logo + '"></i> <span class="collapse in hidden-xs">' +data.display_name + '</span> <span class="collapse in hidden-xs pull-right"><i class="fa fa-circle fa-xs ' + status_color + '" ></i></span></a></li>';
+                     li = '<li class="status-online"><a href="#"><i><img class="img img-rounded" style="border-radius:50%; width:30px"  src="' + data.stream.channel.logo + '"></i> <span class="collapse in hidden-xs">' + data.display_name + '</span> <span class="collapse in hidden-xs pull-right"><i class="fa fa-circle fa-xs ' + status_color + '" ></i></span></a></li>';
+                    
+                    fav_panel = '<div class="col-xs-12 col-sm-4 panel-container"><div class="panel navbar-inverse"><div class="panel-heading"><div class="row" id="heading-row"><img class="col-xs-12 col-sm-3 img img-rounded img-responsive" src="' + data.stream.channel.logo + '"><h5 style="color: lightgreen" class="col-xs-12 col-sm-6 display-name">' + data.stream.channel.display_name + '</h5><p style="color: lightgreen" class="col-xs-12 col-sm-3 followers text-center"> <i class="fa fa-star"></i><br>  ' + data.stream.channel.followers + '</p></div></div><div class="panel-body"><iframe width="100%" src="https://player.twitch.tv/?channel=' + data.stream.channel.display_name + '&muted=false&pause=true&autoplay=false"  frameborder="0" scrolling="no" allowfullscreen="true"></iframe></div></div></div>'
+                    
+                    if(fav_panel !== undefined){
+                        no_favs.addClass('hidden');
+                        fav_channels.append(fav_panel);
+                    }
                 }
                 
+                console.log('the classes', no_favs.className);
+                
+//                if(fav_panel !== undefined){
+//                    no_favs.addClass('hidden');
+//                    fav_channels.append(fav_panel);
+//                }
                 menu.append(li);
 
             },
@@ -79,14 +95,16 @@ function fetchFeatured(){
 
 function populateFeatured(response){
     response = response.featured;
-    var content = "<div class=\"col-sm-12 text-center\"><h1>Featured Channels</h1></div>";
+    var content = ' ';
     var featured = $('.featured');
     response.forEach(function(channel){
-         content += '<div class="col-xs-12 col-sm-4 panel-container"><div class="panel navbar-inverse"><div class="panel-heading"><div class="row" id="heading-row"><img class="col-xs-12 col-sm-3 img img-rounded img-responsive" src="' + channel.stream.channel.logo + '"><h5 style="color: lightgreen" class="col-xs-12 col-sm-6 display-name">' + channel.stream.channel.display_name + '</h5><p style="color: lightgreen" class="col-xs-12 col-sm-3 followers text-center"> <i class="fa fa-star"></i><br>  ' + channel.stream.channel.followers + '</p></div></div><div class="panel-body"><iframe width="100%" src="https://player.twitch.tv/?channel=' + channel.stream.channel.display_name + '&muted=false&pause=true&autoplay=false"  frameborder="0" scrolling="no" allowfullscreen="true"></iframe></div></div></div>';
-
+         content = '<div class="col-xs-12 col-sm-4 panel-container"><div class="panel navbar-inverse"><div class="panel-heading"><div class="row" id="heading-row"><img class="col-xs-12 col-sm-3 img img-rounded img-responsive" src="' + channel.stream.channel.logo + '"><h5 style="color: lightgreen" class="col-xs-12 col-sm-6 display-name">' + channel.stream.channel.display_name + '</h5><p style="color: lightgreen" class="col-xs-12 col-sm-3 followers text-center"> <i class="fa fa-star"></i><br>  ' + channel.stream.channel.followers + '</p></div></div><div class="panel-body"><iframe width="100%" src="https://player.twitch.tv/?channel=' + channel.stream.channel.display_name + '&muted=false&pause=true&autoplay=false"  frameborder="0" scrolling="no" allowfullscreen="true"></iframe></div></div></div>';
+        
+        featured.append(content);
     });
     
-    featured.append(content);
+
+    
 }
 
 fetchFeatured();

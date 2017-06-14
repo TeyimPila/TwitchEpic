@@ -45,56 +45,44 @@
                 <h4> Favorite Channels </h4>
             </div>
             <ul class="nav" id="menu">
-<!--
-                <li><a href="#"><i class="fa fa-list-alt"></i> <span class="collapse in hidden-xs">Channel 1</span> <span class="collapse in hidden-xs pull-right">offline</span></a></li>
-                <li><a href="#"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Channel 2</span> <span class="collapse in hidden-xs pull-right">offline</span></a></li>
-                <li><a href="#"><i class="fa fa-paperclip"></i> <span class="collapse in hidden-xs">Channel 3</span> <span class="collapse in hidden-xs pull-right">offline</span></a></li>
-                <li><a href="#"><i class="fa fa-refresh"></i> <span class="collapse in hidden-xs">Channel 4</span> <span class="collapse in hidden-xs pull-right">offline</span></a></li>
--->
-<!--
-                <li>
-                    <a href="#" data-target="#item1" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Menu <span class="caret"></span></span></a>
-                    <ul class="nav nav-stacked collapse left-submenu" id="item1">
-                        <li><a href="google.com">View One</a></li>
-                        <li><a href="gmail.com">View Two</a></li>
-                    </ul>
-                </li>
--->
-<!--
-                <li>
-                    <a href="#" data-target="#item2" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Menu <span class="caret"></span></span></a>
-                    <ul class="nav nav-stacked collapse" id="item2">
-                        <li><a href="#">View One</a></li>
-                        <li><a href="#">View Two</a></li>
-                        <li><a href="#">View Three</a></li>
-                    </ul>
-                </li>
--->
-<!--                <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span class="collapse in hidden-xs">Channel 5</span> <span class="collapse in hidden-xs pull-right">offline</span></a></li>-->
             </ul>
-            <div class="collapse in hidden-xs text-center float-bottom">
-                <input style="width:100%; margin-left:10px" type="text" placeholder="Search Twitch.TV..." required/>
+            
+            <div class="collapse text-center in hidden-xs ">
+               <span style="color:white">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span>
+               
+               <span><a class="label label-success"> Online</a></span> 
+               
+               <span><a class="label label-danger"> Offline</a></span> 
+               
+               <span><a class="label label-info">&nbsp; &nbsp; &nbsp; All &nbsp; &nbsp; &nbsp;</a></span>
             </div>
         </div>
         <!-- /sidebar -->
 
         <!-- main right col -->
         <div class="column col-sm-9 col-xs-11" id="main">
+            <div class="row navbar-inverse">
+                <input style="width:100%; margin-left:10px, max-width:100px" type="text" placeholder="Search Twitch.TV..." required/>
+           </div>
 <!--            <p><a href="#" id="toggle-sidebar" data-toggle="offcanvas"><i class="fa fa-navicon fa-2x"></i></a></p>-->
                 <div class="row search-results hidden">
                    <div class="col-sm-12">
                         Hello there how are you
                    </div>
                 </div>
-                 <div class="row favorites">
-                   <h1 class="text-center">Favorite Chennels</h1>
-                    <div class="col-sm-12">
-                        Favorite channels fo here
-                   </div>
+                 <div class="row favorites" id="favorite-channels">
+                  <h1 class="text-center">Live Favorite Channels</h1>
+                  
+                    <div class="alert alert-info alert-dismissible" role="alert" id="no-favs">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4><strong>Oh ow!</strong> Looks like none of your favorite channel is online. Take a look at the Featured Channels below.</h4>
+                    </div>
+
+                   
                 </div>
                 
                 <div class="row featured text-center">
-                  
+                     <div class="col-sm-12 text-center"><h1>Featured Channels</h1></div>
                 </div>
         </div>
         <!-- /main -->
