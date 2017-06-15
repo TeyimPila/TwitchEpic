@@ -36,7 +36,7 @@ function fetchFavorites(){
                 
                 if(data.stream === null){
                     status_color = 'text-danger';
-                     li = '<li class="status-ofline"><a href="https://www.twitch.tv/'+data.display_name+'" target="_blank"><i class="fa fa-list-alt"></i> <span class="collapse in hidden-xs">' + data.display_name + '</span> <span class="collapse in hidden-xs pull-right"><i class="fa fa-circle fa-xs '+status_color+'" ></i></span></a></li>';
+                     li = '<li class="status-ofline"><a href="https://www.twitch.tv/'+data.display_name+'" target="_blank"><i class="fa fa-television fa-2x" aria-hidden="false"></i> <span class="collapse in hidden-xs">' + data.display_name + '</span> <span class="collapse in hidden-xs pull-right"><i class="fa fa-circle fa-xs '+status_color+'" ></i></span></a></li>';
                 } else {
                     status_color = 'text-success';
                      li = '<li class="status-online"><a href="#"><i><img class="img img-rounded" style="border-radius:50%; width:30px"  src="' + data.stream.channel.logo + '"></i> <span class="collapse in hidden-xs">' + data.display_name + '</span> <span class="collapse in hidden-xs pull-right"><i class="fa fa-circle fa-xs ' + status_color + '" ></i></span></a></li>';
@@ -98,11 +98,6 @@ function populateFeatured(response){
         featured.append(content);
     });
 }
-
-
-
-
-
 
 
 fetchFeatured();
