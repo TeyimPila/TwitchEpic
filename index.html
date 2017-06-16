@@ -47,23 +47,30 @@
             <ul class="nav" id="menu">
             </ul>
             
-            <div class="collapse text-center in hidden-xs">
+            <div class="collapse text-center in hidden-xs" id="filter-buttons">
               <p class="text-info" style="padding-top:50px; color:white; font-size:18px">Filter</p>
-               <p style="padding-top:10px"><span><a class="label label-success"> Online</a></span> 
+               <p style="padding-top:10px">
                
-               <span><a class="label label-danger"> Offline</a></span> 
+               <span onclick="return filterChannel('status-online')"><a class="label label-success"> Online</a></span> 
                
-               <span><a class="label label-info">&nbsp; &nbsp; &nbsp; All &nbsp; &nbsp; &nbsp;</a></span></p>
+               <span onclick="return filterChannel('status-offline')"><a class="label label-danger"> Offline</a></span> 
+               
+               <span onclick="return filterChannel('all')"><a class="label label-info">&nbsp; &nbsp; &nbsp; All &nbsp; &nbsp; &nbsp;</a></span></p>
             </div>
         </div>
         <!-- /sidebar -->
 
         <!-- main right col -->
         <div class="column col-sm-9 col-xs-11" id="main">
-            <div class="row navbar-inverse">
-                <input style="width:100%; margin-left:10px, max-width:100px" type="text" placeholder="Search Twitch.TV..." required/>
+           
+           <!-- TODO: IMPLEMENT ON TWITCH -->
+            <div class="row">
+              
+               <div class="nav navbar-inverse navbar text-center hidden">
+                    <input style="height:100%; width:100%; margin-left:10px;" type="text" placeholder="Search Twitch.TV..." required/>
+               </div>
            </div>
-<!--            <p><a href="#" id="toggle-sidebar" data-toggle="offcanvas"><i class="fa fa-navicon fa-2x"></i></a></p>-->
+               
                 <div class="row search-results hidden">
                    <div class="col-sm-12">
                         Hello there how are you

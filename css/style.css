@@ -7,6 +7,16 @@ html, body {
     height: 100%;
 }
 
+#filter-buttons{
+    border: 1px solid skyblue;
+    border-radius: 8px;
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    bottom: 10%;
+    margin: 0 auto;
+}
+
 .panel-heading {
     padding: 5px 0px 5px 0px;
     padding-bottom: 0px;
